@@ -16,10 +16,12 @@ public class Main {
         // Criando voluntários
         Voluntario voluntario1 = new Voluntario("Ana Souza", "ana@email.com");
         Voluntario voluntario2 = new Voluntario("Carlos Lima", "carlos@email.com");
+        Voluntario voluntario3 = new Voluntario("Joaquim Fenix", "joca_fefe@email.com");
 
         // Associando voluntários aos projetos
         projetoReflorestamento.adicionarVoluntario(voluntario1);
         projetoReflorestamento.adicionarVoluntario(voluntario2);
+        projetoReflorestamento.adicionarVoluntario(voluntario3);
         projetoReciclagem.adicionarVoluntario(voluntario1);
         projetoEnergia.adicionarVoluntario(voluntario2);
 
