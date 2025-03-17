@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProjetoSustentavel {
+public class ProjetoSustentavel implements ImpactoAmbiental { // Implementa a interface
     private String nome;
     private String descricao;
     private List<Voluntario> voluntarios;
@@ -25,7 +25,6 @@ public class ProjetoSustentavel {
         return this.relatorioImpacto;
     }
 
-    // **Adicionando os métodos que faltavam**
     public String getNome() {
         return nome;
     }
@@ -36,5 +35,16 @@ public class ProjetoSustentavel {
 
     public List<Voluntario> getVoluntarios() {
         return voluntarios;
+    }
+
+    // **Implementação do método da interface**
+    @Override
+    public void calcularImpacto() {
+        if (relatorioImpacto != null) {
+            System.out.println("Impacto ambiental do projeto " + nome + ":");
+            relatorioImpacto.exibirRelatorio();
+        } else {
+            System.out.println("Nenhum relatório de impacto gerado para o projeto " + nome);
+        }
     }
 }

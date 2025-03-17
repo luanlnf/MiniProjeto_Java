@@ -38,9 +38,13 @@ public class Main {
 
             // Exibir relatório de impacto (se existir)
             if (p.getRelatorioImpacto() != null) {
-                System.out.println("    Relatório de Impacto:");
-                p.getRelatorioImpacto().exibirRelatorio();
+                p.getRelatorioImpacto().exibirRelatorio(); // Correção: removemos a linha extra
             }
+        }
+
+        System.out.println("\nCalculando impacto ambiental dos projetos:");
+        for (ProjetoSustentavel p : ongVerde.listarProjetos()) {
+            p.calcularImpacto();
         }
     }
 }
