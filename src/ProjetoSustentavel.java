@@ -1,11 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProjetoSustentavel implements ImpactoAmbiental { // Implementa a interface
+public abstract class ProjetoSustentavel implements ImpactoAmbiental { // Agora é abstrata
     private String nome;
     private String descricao;
     private List<Voluntario> voluntarios;
-    private RelatorioImpacto relatorioImpacto;
 
     public ProjetoSustentavel(String nome, String descricao) {
         this.nome = nome;
@@ -15,14 +14,6 @@ public class ProjetoSustentavel implements ImpactoAmbiental { // Implementa a in
 
     public void adicionarVoluntario(Voluntario voluntario) {
         this.voluntarios.add(voluntario);
-    }
-
-    public void gerarRelatorioImpacto(int arvoresPlantadas, double reducaoCO2) {
-        this.relatorioImpacto = new RelatorioImpacto(arvoresPlantadas, reducaoCO2);
-    }
-
-    public RelatorioImpacto getRelatorioImpacto() {
-        return this.relatorioImpacto;
     }
 
     public String getNome() {
@@ -37,14 +28,7 @@ public class ProjetoSustentavel implements ImpactoAmbiental { // Implementa a in
         return voluntarios;
     }
 
-    // **Implementação do método da interface**
+    // Método abstrato que será implementado pelas subclasses
     @Override
-    public void calcularImpacto() {
-        if (relatorioImpacto != null) {
-            System.out.println("Impacto ambiental do projeto " + nome + ":");
-            relatorioImpacto.exibirRelatorio();
-        } else {
-            System.out.println("Nenhum relatório de impacto gerado para o projeto " + nome);
-        }
-    }
+    public abstract void calcularImpacto();
 }

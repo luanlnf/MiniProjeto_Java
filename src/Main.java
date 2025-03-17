@@ -3,13 +3,15 @@ public class Main {
         // Criando uma organização
         Organizacao ongVerde = new Organizacao("ONG Verde");
 
-        // Criando projetos sustentáveis
-        ProjetoSustentavel projetoReflorestamento = new ProjetoSustentavel("Reflorestamento", "Plantar árvores para restaurar áreas desmatadas");
-        ProjetoSustentavel projetoReciclagem = new ProjetoSustentavel("Reciclagem Urbana", "Incentivar a coleta seletiva e reciclagem de resíduos");
+        // Criando projetos sustentáveis das novas subclasses
+        ProjetoReflorestamento projetoReflorestamento = new ProjetoReflorestamento("Reflorestamento", "Plantar árvores", 500);
+        ProjetoReciclagem projetoReciclagem = new ProjetoReciclagem("Reciclagem Urbana", "Redução de resíduos", 2.5);
+        ProjetoEnergiaRenovavel projetoEnergia = new ProjetoEnergiaRenovavel("Energia Solar", "Placas solares em comunidades", 120.0);
 
         // Adicionando projetos à organização
         ongVerde.adicionarProjeto(projetoReflorestamento);
         ongVerde.adicionarProjeto(projetoReciclagem);
+        ongVerde.adicionarProjeto(projetoEnergia);
 
         // Criando voluntários
         Voluntario voluntario1 = new Voluntario("Ana Souza", "ana@email.com");
@@ -19,9 +21,7 @@ public class Main {
         projetoReflorestamento.adicionarVoluntario(voluntario1);
         projetoReflorestamento.adicionarVoluntario(voluntario2);
         projetoReciclagem.adicionarVoluntario(voluntario1);
-
-        // Criando relatório de impacto para um projeto
-        projetoReflorestamento.gerarRelatorioImpacto(500, 120.5);
+        projetoEnergia.adicionarVoluntario(voluntario2);
 
         // Exibindo dados cadastrados
         System.out.println("\nOrganização: " + ongVerde.getNome());
@@ -34,11 +34,6 @@ public class Main {
             System.out.println("    Voluntários:");
             for (Voluntario v : p.getVoluntarios()) {
                 System.out.println("      - " + v.getNome() + " (" + v.getEmail() + ")");
-            }
-
-            // Exibir relatório de impacto (se existir)
-            if (p.getRelatorioImpacto() != null) {
-                p.getRelatorioImpacto().exibirRelatorio(); // Correção: removemos a linha extra
             }
         }
 
